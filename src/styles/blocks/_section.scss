@@ -1,11 +1,21 @@
 .section {
 
+  margin-top: 3rem;
+
   &__title {
     font-size: $fonts__h1;
+    color: $colors__dark-blue--dark;
   }
 
   &__content {
-    margin-top: 1rem;
+    margin-top: 2rem;
+    color: $colors__gray--dark;
+  }
+
+  @include respond-to(small) {
+    &__title {
+      font-size: $fonts__subtitle;
+    }
   }
 
 }

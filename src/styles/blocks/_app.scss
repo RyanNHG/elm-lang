@@ -11,6 +11,9 @@
     transition: opacity .3s ease-in-out .15s, transform .6s ease-in-out;
     opacity: 0;
     transform: translateY(2rem);
+    &--delayed {
+      transition: opacity .3s ease-in-out .75s, transform .6s ease-in-out .6s;
+    }
   }
 
   &__slidable {

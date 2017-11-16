@@ -1,0 +1,71 @@
+.rich-text {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: $fonts__h2;
+  }
+
+  h2 {
+    font-size: $fonts__h3;
+  }
+
+  h3 {
+    font-size: $fonts__h4;
+  }
+
+  h4 {
+    font-size: $fonts__h5;
+  }
+
+  p {
+    line-height: 1.4;
+  }
+
+  a[href] {
+    color: $colors__blue--dark;
+    transition: color .15s ease-in-out;
+    &:hover,
+    &:focus {
+      color: $colors__orange--dark;
+    }
+  }
+
+  @include respond-to(small) {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      margin-top: 1.5rem;
+    }
+
+    h1 {
+      font-size: $fonts__h1;
+    }
+  
+    h2 {
+      font-size: $fonts__h2;
+    }
+  
+    h3 {
+      font-size: $fonts__h3;
+    }
+  
+    h4 {
+      font-size: $fonts__h4;
+    }
+  }
+
+}
