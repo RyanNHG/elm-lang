@@ -40,7 +40,8 @@
   }
 
   &__link {
-    padding: .5rem;
+    padding: .5rem 0;
+    margin: 0 .5rem;
   }
 
   @include respond-to(small) {
