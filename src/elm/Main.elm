@@ -14,7 +14,11 @@ type Msg
     = DoNothing
 
 
-links : List ( String, String )
+type alias Link =
+    ( String, String )
+
+
+links : List Link
 links =
     [ ( "learn", "/learn" )
     , ( "community", "/community" )
@@ -34,19 +38,44 @@ hero =
     HeroContent "elm" "A delightful language for reliable webapps."
 
 
-type alias Markdown =
-    String
-
-
-type alias SectionContent =
+type alias Section =
     { title : String
-    , content : Markdown
+    , content : SectionContent
     }
 
 
-homepageSections : List SectionContent
+type SectionContent
+    = Markdown String
+    | Quote QuoteContent
+    | TileList (List TileContent)
+    | Multiple (List SectionContent)
+
+
+type alias TileContent =
+    { title : String
+    , link : String
+    , imageUrl : String
+    }
+
+
+type alias QuoteContent =
+    { quote : String
+    , author : String
+    , link : Link
+    , image : Image
+    }
+
+
+type alias Image =
+    { url : String
+    , altText : String
+    }
+
+
+homepageSections : List Section
 homepageSections =
-    [ SectionContent "features" """
+    [ Section "features" <|
+        Markdown """
 
 ### Javascript Interop
 
@@ -76,8 +105,22 @@ Elm can detect all API changes automatically thanks to its type system. We use t
 precisely. No more surprises in PATCH releases!
 
     """
-    , SectionContent "examples" ""
-    , SectionContent "users" ""
+    , Section "examples" <|
+        Multiple
+            [ Markdown """
+Learning by example is important, so we have some [simple](http://elm-lang.org/examples) and
+[elaborate](http://builtwithelm.co/) examples to help you as you move through [An Introduction to Elm](http://guide.elm-lang.org/).
+Here are some nice ones!
+            """
+            , TileList
+                [ TileContent "todomvc" "https://evancz.github.io/elm-todomvc" "http://elm-lang.org/assets/examples/todomvc.png"
+                , TileContent "hedley" "https://gizra.github.io/elm-hedley" "http://elm-lang.org/assets/examples/hedley.png"
+                , TileContent "conduit" "http://rtfeldman.github.io/elm-spa-example/" "http://elm-lang.org/assets/examples/elm-spa-example.png"
+                , TileContent "package.elm-lang.org" "http://package.elm-lang.org/" "http://elm-lang.org/assets/examples/package.png"
+                ]
+            ]
+
+    --, Section "users" <| Multiple []
     ]
 
 
@@ -125,6 +168,7 @@ view model =
         [ viewNavigation
         , viewHero
         , viewSections
+        , viewFooter
         ]
 
 
@@ -160,11 +204,59 @@ viewSections =
         (List.map viewSection homepageSections)
 
 
-viewSection : SectionContent -> Html Msg
+viewSection : Section -> Html Msg
 viewSection { title, content } =
     section [ class "section" ]
         [ h3 [ class "section__title" ] [ text title ]
-        , Markdown.toHtml [ class "section__content rich-text" ] content
+        , viewSectionContent content
+        ]
+
+
+viewSectionContent : SectionContent -> Html Msg
+viewSectionContent content =
+    case content of
+        Markdown markdown ->
+            Markdown.toHtml [ class "section__content rich-text" ] markdown
+
+        Quote quote ->
+            viewQuote quote
+
+        TileList list ->
+            viewTiles list
+
+        Multiple list ->
+            div [ class "section__multiple" ] (List.map viewSectionContent list)
+
+
+viewQuote : QuoteContent -> Html Msg
+viewQuote quote =
+    div [ class "quote" ] [ text "TODO: Quote section" ]
+
+
+viewTiles : List TileContent -> Html Msg
+viewTiles tiles =
+    div [ class "tile__list" ]
+        (List.map viewTileContent tiles)
+
+
+viewTileContent : TileContent -> Html Msg
+viewTileContent { title, link, imageUrl } =
+    a [ class "tile", href link, target "_blank" ]
+        [ div
+            [ class "tile__image-container" ]
+            [ img [ class "tile__image", src imageUrl, alt title ] [] ]
+        , div
+            [ class "tile__details" ]
+            [ h4 [ class "tile__title" ] [ text title ]
+            ]
+        ]
+
+
+viewFooter : Html Msg
+viewFooter =
+    footer [ class "footer" ]
+        [ div [ class "footer__text container" ]
+            [ text "All code for this site is open source and written in Elm!" ]
         ]
 
 

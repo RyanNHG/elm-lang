@@ -1,0 +1,12 @@
+.footer {
+
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  border-top: solid 1px $colors__gray--light;
+  
+  &__text {
+    color: $colors__gray--dark;
+    line-height: 1.3;
+  }
+
+}
