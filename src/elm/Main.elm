@@ -113,10 +113,10 @@ Learning by example is important, so we have some [simple](http://elm-lang.org/e
 Here are some nice ones!
             """
             , TileList
-                [ TileContent "todomvc" "https://evancz.github.io/elm-todomvc" "http://elm-lang.org/assets/examples/todomvc.png"
-                , TileContent "hedley" "https://gizra.github.io/elm-hedley" "http://elm-lang.org/assets/examples/hedley.png"
-                , TileContent "conduit" "http://rtfeldman.github.io/elm-spa-example/" "http://elm-lang.org/assets/examples/elm-spa-example.png"
-                , TileContent "package.elm-lang.org" "http://package.elm-lang.org/" "http://elm-lang.org/assets/examples/package.png"
+                [ TileContent "todomvc" "https://evancz.github.io/elm-todomvc" "/images/examples/todomvc.png"
+                , TileContent "hedley" "https://gizra.github.io/elm-hedley" "/images/examples/hedley.png"
+                , TileContent "conduit" "http://rtfeldman.github.io/elm-spa-example/" "/images/examples/elm-spa-example.png"
+                , TileContent "package.elm-lang.org" "http://package.elm-lang.org/" "/images/examples/package.png"
                 ]
             ]
 

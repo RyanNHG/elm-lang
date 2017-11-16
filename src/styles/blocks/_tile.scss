@@ -50,7 +50,6 @@
   @include respond-to(small) {
 
     width: calc(50% - 2rem);
-    max-width: 400px;
     margin: 0 auto;
     margin-top: 2rem;
 
