@@ -1,0 +1,38 @@
+{
+  "name": "elm-lang",
+  "version": "1.0.0",
+  "description": "a website for a delightful language.",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp && static-server public",
+    "global": "npm i -g elm gulp-cli static-server",
+    "build": "gulp",
+    "dev": "static-server public & gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryannhg/elm-lang.git"
+  },
+  "keywords": [
+    "elm",
+    "lang",
+    "website"
+  ],
+  "author": "Ryan Haskell-Glatz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryannhg/elm-lang/issues"
+  },
+  "homepage": "https://github.com/ryannhg/elm-lang#readme",
+  "standard": {
+    "globals": [
+      "Elm"
+    ]
+  },
+  "dependencies": {
+    "elm": "^0.18.0",
+    "gulp": "^3.9.1",
+    "gulp-elm": "^0.7.2",
+    "gulp-sass": "^3.1.0"
+  }
+}

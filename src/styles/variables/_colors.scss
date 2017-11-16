@@ -1,0 +1,27 @@
+// Original Colors
+$colors__white: #ffffff;
+$colors__blue--orig: #60b5cd;
+$colors__dark-blue--orig: #5a6378;
+$colors__green--orig: #7fd13b;
+$colors__orange--orig: #f0ad00;
+
+// Normalized colors: http://www.0to255.com/60b5cd to 
+// Light: ~70%
+// Normal: ~50%
+// Dark: ~37%
+
+$colors__blue--light: #87c7d9;
+$colors__blue: #3ca2be;
+$colors__blue--dark: #2c768b;
+
+$colors__dark-blue--light: #abb1c0;
+$colors__dark-blue: #717b94;
+$colors__dark-blue--dark: #535b6e;
+
+$colors__green--light: #ace180;
+$colors__green: #76cb30;
+$colors__green--dark: #569423;
+
+$colors__orange--light: #ffd568;
+$colors__orange: #ffb802;
+$colors__orange--dark: #bd8800;

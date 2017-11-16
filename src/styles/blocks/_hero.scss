@@ -1,0 +1,37 @@
+.hero {
+
+  $pv: 3rem;
+  $pt: calc(#{$sizes__navbar-height--mobile} + #{$pv});
+
+  background-color: $colors__blue--dark;
+  color: $colors__white;
+  padding: $pv 0;
+  padding-top: $pt;
+
+  &__title {
+    font-size: $fonts__h1;
+  }
+  
+  &__subtitle {
+    margin-top: .5rem;
+  }
+
+  @include respond-to(small) {
+    
+    $pv: 6rem;
+    $pt: calc(#{$sizes__navbar-height} + #{$pv});
+
+    padding: $pv 0;
+    padding-top: $pt;
+
+    &__title {
+      font-size: $fonts__title;
+    }
+        
+    &__subtitle {
+      font-size: $fonts__h3;
+    }
+
+  }
+
+}

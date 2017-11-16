@@ -1,0 +1,12 @@
+.container {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: $sizes__container-width;
+  box-sizing: border-box;
+  padding: 0 1rem;
+
+  @include respond-to (small) {
+    padding: 0 2rem;
+  }
+}

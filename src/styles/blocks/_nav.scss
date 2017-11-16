@@ -1,0 +1,56 @@
+.nav {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  font-size: $fonts__body--mobile;
+
+  background-color: $colors__blue--dark;
+  color: $colors__white;
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__brand {
+    height: $sizes__navbar-height--mobile;
+    padding: .5rem;
+    box-sizing: border-box;
+    transition: opacity .3s ease-in-out;
+    &:hover,
+    &:focus {
+      opacity: .6;
+    }
+  }
+  
+  &__brand-image {
+    background-color: white;
+    height: 100%;
+  }
+
+  &__links {
+    min-height: $sizes__navbar-height--mobile;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__link {
+    padding: .5rem;
+  }
+
+  @include respond-to(small) {
+
+    font-size: $fonts__body;
+
+    &__links {
+      min-height: $sizes__navbar-height;
+    }
+
+  }
+
+}

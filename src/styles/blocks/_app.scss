@@ -1,0 +1,38 @@
+.app {
+
+  font-family: $fonts__sans;
+  font-size: $fonts__body--mobile;
+
+  @include respond-to(small) {
+    font-size: $fonts__body;
+  }
+
+  &__fadable {
+    transition: opacity .3s ease-in-out .15s, transform .6s ease-in-out;
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  &__slidable {
+    &--up {
+      transition: transform .6s ease-in-out;
+      transform: translateY(-100%);
+    }
+  }
+
+  &--ready {
+    
+    .app__fadable {
+      opacity: 1;
+      transform: none;
+    }
+
+    .app__slidable {
+      &--up {
+        transform: none;
+      }
+    }
+
+  }
+
+}
