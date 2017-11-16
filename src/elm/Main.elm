@@ -241,7 +241,7 @@ viewTiles tiles =
 
 viewTileContent : TileContent -> Html Msg
 viewTileContent { title, link, imageUrl } =
-    a [ class "tile", href link, target "_blank" ]
+    a [ class "tile", href link, target "_blank", attribute "rel" "noopener" ]
         [ div
             [ class "tile__image-container" ]
             [ img [ class "tile__image", src imageUrl, alt title ] [] ]
